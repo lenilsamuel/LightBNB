@@ -168,8 +168,6 @@ const getAllProperties = (options, limit = 5) => {
   LIMIT $${queryParams.length};
   `;
 
-  console.log(queryString, queryParams);
-
   return pool.query(queryString, queryParams).then((res) => res.rows);
 };
 exports.getAllProperties = getAllProperties;
@@ -199,8 +197,7 @@ const addProperty = function (property) {
     property.province,
     property.post_code,
   ];
-  console.log(values);
-  console.log(queryString);
+
   return pool
     .query(queryString, values)
     .then((res) => {
